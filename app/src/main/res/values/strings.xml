@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">SPCourseWork</string>
+
+    <!-- Navigation Item start -->
+    <string name="home">Home</string>
+    <string name="info">Info</string>
+    <string name="create_new_request">Create new Request</string>
+    <string name="filter_and_search">Filter and search</string>
+    <string name="sort_by_date_edited">Sort by date edited</string>
+    <string name="successfully_deleted_habit">Successfully deleted habit</string>
+    <string name="undo">Undo</string>
+    <!-- Navigation Item end -->
+</resources>
