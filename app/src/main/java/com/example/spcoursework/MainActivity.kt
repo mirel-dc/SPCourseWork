@@ -22,6 +22,8 @@ import com.example.spcoursework.domain.network.SessionManager
 import com.example.spcoursework.entities.Client
 import com.example.spcoursework.entities.Employee
 import com.example.spcoursework.entities.EmployeeRoles
+import com.example.spcoursework.entities.Request
+import com.example.spcoursework.entities.RequestStatus
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -62,6 +64,7 @@ class MainActivity : AppCompatActivity() {
         binding.navView.menu.findItem(R.id.logout).setOnMenuItemClickListener {
             SessionManager.logout()
             binding.drawerLayout.closeDrawers()
+            navController.popBackStack()
             return@setOnMenuItemClickListener false
         }
 
@@ -83,14 +86,14 @@ class MainActivity : AppCompatActivity() {
 //                    carNumber = carNumber,
 //                    workerId = null,
 //                    problemDescription = "пупупум",
-//                    status = RequestStatus.ARRIVED
+//                    status = RequestStatus.PENDING
 //                )
 //            )
-
+//
 //            dao.insertClient(
 //                Client(
 //                    0, name = "Anton",
-//                    phoneNumber = "2324",
+//                    phoneNumber = "8900",
 //                    carNumber = "123asd"
 //                )
 //            )

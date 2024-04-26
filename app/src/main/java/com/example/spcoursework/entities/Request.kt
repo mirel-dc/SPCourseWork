@@ -1,10 +1,10 @@
 package com.example.spcoursework.entities
 
 import android.os.Parcelable
-import com.example.spcoursework.R
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
+import com.example.spcoursework.R
 import kotlinx.parcelize.Parcelize
 import java.util.UUID
 
@@ -36,8 +36,8 @@ data class Request(
 )
 
 @Parcelize
-enum class RequestStatus() : Parcelable {
-    PENDING(),
-    WORKING(),
-    FINISHED()
+enum class RequestStatus(val resId: Int) : Parcelable {
+    PENDING(R.string.pending),
+    WORKING(R.string.working),
+    FINISHED(R.string.finished)
 }

@@ -11,10 +11,10 @@ import java.util.UUID
 data class Employee(
     @PrimaryKey
     val id: UUID = UUID.randomUUID(),
-    val name: String,
-    val role: EmployeeRoles,
-    val phoneNumber: String,
-    val password: String
+    var name: String,
+    var role: EmployeeRoles,
+    var phoneNumber: String,
+    var password: String
 )
 
 @Parcelize

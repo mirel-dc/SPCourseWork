@@ -27,11 +27,11 @@
     <fragment
         android:id="@+id/createEmployeeFragment"
         android:name="com.example.spcoursework.presentation.fragments.CreateEmployeeFragment"
-        android:label="CreateEmployeeFragment"/>
+        android:label="@string/create_employee" />
 
     <fragment
         android:id="@+id/createRequestFragment"
         android:name="com.example.spcoursework.presentation.fragments.CreateRequestFragment"
-        android:label="CreateRequestFragment"/>
+        android:label="@string/create_request" />
 
 </navigation>

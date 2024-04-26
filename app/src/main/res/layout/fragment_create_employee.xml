@@ -72,7 +72,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <RadioGroup
-        android:id="@+id/rgHabitType"
+        android:id="@+id/rgEmployeeRole"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -81,7 +81,7 @@
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/rbGood"
+            android:id="@+id/rbWorker"
             style="@style/CasualTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
             android:text="@string/worker" />
 
         <RadioButton
-            android:id="@+id/rbBad"
+            android:id="@+id/rbAdmin"
             style="@style/CasualTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

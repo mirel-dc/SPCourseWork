@@ -7,13 +7,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.spcoursework.R
-import com.example.spcoursework.entities.Request
 import com.example.spcoursework.databinding.ListItemRequestBinding
+import com.example.spcoursework.entities.Request
 
-class RequestAdapter(
+class RecyclerViewAdapter(
     context: Context,
     private val clickListener: OnRecyclerItemClicked,
-) : ListAdapter<Request, RequestAdapter.ViewHolder>(HabitDiffItemCallback()) {
+) : ListAdapter<Request, RecyclerViewAdapter.ViewHolder>(RequestDiffItemCallback()) {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
 
@@ -36,7 +36,11 @@ class RequestAdapter(
         private val binding = ListItemRequestBinding.bind(view)
 
         fun bind(request: Request) = with(binding) {
-            //TODO
+            tvRequestId.text = request.id.toString()
+            tvCarNumber.text = request.carNumber
+            tvRequestDescription.text = request.problemDescription
+            tvRequestStatus.text = context.getString(request.status.resId)
+            tvWorkerName.text = request.workerId.toString()
         }
     }
 }
