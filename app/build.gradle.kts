@@ -42,6 +42,12 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    kapt {
+        arguments {
+            arg("room.schemaLocation","$projectDir/schemas")
+        }
+    }
 }
 
 dependencies {
@@ -67,4 +73,8 @@ dependencies {
     //DataBase
     implementation("androidx.room:room-ktx:2.6.1")
     kapt("androidx.room:room-compiler:2.6.1")
+
+    //Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
 }

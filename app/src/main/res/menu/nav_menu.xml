@@ -4,13 +4,27 @@
     tools:showIn="navigation_view">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/mainHolderFragment"
+            android:id="@+id/holderFragment"
             android:icon="@drawable/ic_home"
             android:title="@string/home" />
 
         <item
-            android:id="@+id/infoFragment"
-            android:icon="@drawable/ic_info"
-            android:title="@string/info" />
+            android:id="@+id/createRequestFragment"
+            android:icon="@drawable/ic_request"
+            android:title="@string/create_request" />
+
+        <item
+            android:id="@+id/createEmployeeFragment"
+            android:icon="@drawable/ic_employee"
+            android:title="@string/create_employee" />
     </group>
+
+    <item android:title="">
+        <menu>
+            <item
+                android:id="@+id/logout"
+                android:icon="@drawable/ic_logout"
+                android:title="@string/logout" />
+        </menu>
+    </item>
 </menu>

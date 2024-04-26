@@ -2,7 +2,36 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_nav">
+    android:id="@+id/main_nav"
+    app:startDestination="@id/holderFragment">
 
+    <fragment
+        android:id="@+id/holderFragment"
+        android:name="com.example.spcoursework.presentation.fragments.HolderFragment"
+        android:label="@string/home"
+        tools:layout="@layout/fragment_holder">
+        <action
+            android:id="@+id/action_holderFragment_to_createEmployeeFragment"
+            app:destination="@id/createEmployeeFragment" />
+        <action
+            android:id="@+id/action_holderFragment_to_createRequestFragment"
+            app:destination="@id/createRequestFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.spcoursework.presentation.fragments.LoginFragment"
+        android:label="@string/log_in"
+        tools:layout="@layout/fragment_login" />
+
+    <fragment
+        android:id="@+id/createEmployeeFragment"
+        android:name="com.example.spcoursework.presentation.fragments.CreateEmployeeFragment"
+        android:label="CreateEmployeeFragment"/>
+
+    <fragment
+        android:id="@+id/createRequestFragment"
+        android:name="com.example.spcoursework.presentation.fragments.CreateRequestFragment"
+        android:label="CreateRequestFragment"/>
 
 </navigation>

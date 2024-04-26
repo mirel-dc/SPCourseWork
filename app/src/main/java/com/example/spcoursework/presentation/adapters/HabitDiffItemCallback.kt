@@ -1,7 +1,7 @@
 package com.example.spcoursework.presentation.adapters
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.spcoursework.data.models.Request
+import com.example.spcoursework.entities.Request
 
 class HabitDiffItemCallback() : DiffUtil.ItemCallback<Request>() {
     override fun areItemsTheSame(oldItem: Request, newItem: Request): Boolean {
