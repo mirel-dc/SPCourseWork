@@ -16,15 +16,17 @@ import com.example.spcoursework.entities.Request
         Client::class,
         Request::class
     ],
-    version = 3,
+    version = 7,
     autoMigrations = [
         AutoMigration(from = 2, to = 3),
-        AutoMigration(from = 1, to = 3)
+        AutoMigration(from = 1, to = 3),
+        AutoMigration(from = 3, to = 4),
+
     ]
 )
 @TypeConverters(
     EmployeeRoleConverter::class,
-    UUIDConverter::class
+    //UUIDConverter::class
 )
 abstract class AutoRepairDB : RoomDatabase() {
     abstract fun getDao(): AutoRepairDao

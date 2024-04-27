@@ -36,11 +36,11 @@ class RecyclerViewAdapter(
         private val binding = ListItemRequestBinding.bind(view)
 
         fun bind(request: Request) = with(binding) {
-            tvRequestId.text = request.id.toString()
+            tvRequestId.text = context.getString(R.string.requestNumber, request.id)
             tvCarNumber.text = request.carNumber
             tvRequestDescription.text = request.problemDescription
             tvRequestStatus.text = context.getString(request.status.resId)
-            tvWorkerName.text = request.workerId.toString()
+           // tvWorkerName.text = request.workerId.toString()
         }
     }
 }

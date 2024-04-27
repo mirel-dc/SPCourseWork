@@ -13,25 +13,19 @@ import java.util.UUID
     foreignKeys = [
         ForeignKey(
             entity = Client::class,
-            parentColumns = ["id"],
-            childColumns = ["clientId"],
-            onDelete = ForeignKey.NO_ACTION
-        ),
-        ForeignKey(
-            entity = Employee::class,
-            parentColumns = ["id"],
-            childColumns = ["workerId"],
+            parentColumns = ["phoneNumber"],
+            childColumns = ["clientPhoneNumber"],
             onDelete = ForeignKey.NO_ACTION
         ),
     ]
 )
 data class Request(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val clientId: Int,
-    val workerId: UUID?,
-    val carNumber: String,
-    val problemDescription: String?,
+    var clientPhoneNumber: String,
+    var workerId: UUID?,
+    var carNumber: String,
+    var problemDescription: String?,
     val status: RequestStatus
 )
 

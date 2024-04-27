@@ -34,5 +34,11 @@
     <string name="password_is_too_short">Password is too short</string>
     <string name="at_least_1_digit">At least 1 digit</string>
     <string name="at_least_1_capital_and_lowercase">At least 1 capital and lowercase</string>
+    <string name="client_s_phone_number">Client\'s phone number</string>
+    <string name="wrong_format_a123aa12">Wrong format: A123AA12</string>
+    <string name="find_client_with_car_number">find client with car number</string>
+    <string name="can_t_find_client_with_entered_car_s_number">Can\'t find client with entered Car\'s number</string>
+    <string name="client_found">Client found</string>
+    <string name="requestNumber">Request #%1$d</string>
     <!-- Navigation Item end -->
 </resources>

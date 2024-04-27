@@ -81,12 +81,5 @@ class HolderFragment : Fragment() {
 //        childFragmentManager.beginTransaction()
 //            .replace(binding.containerBottomSheet.id, bottomSheetFilter)
 //            .commit()
-
-
-//        if (SessionManager.isLoggedIn()) {
-//            findNavController().navigate(R.id.requestListFragment)
-//        } else {
-//            findNavController().navigate(R.id.authFragment)
-//        }
     }
 }

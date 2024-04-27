@@ -71,7 +71,11 @@ class LoginFragment : Fragment() {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 withContext(Dispatchers.Main) {
                     requestListViewModel.errorSharedFlow.collectLatest {
-                        Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            requireContext(),
+                            resources.getString(it),
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
             }

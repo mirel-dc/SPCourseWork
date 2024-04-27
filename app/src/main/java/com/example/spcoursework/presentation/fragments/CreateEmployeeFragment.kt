@@ -1,7 +1,6 @@
 package com.example.spcoursework.presentation.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -127,7 +126,6 @@ class CreateEmployeeFragment : Fragment() {
             if (!hasFocus) {
                 viewModel.validatePhone(binding.etEmployeePhoneNumber.text.toString())
             }
-            Log.d(TAG, binding.etEmployeePhoneNumber.text.toString())
         }
     }
 

@@ -16,10 +16,16 @@ open class EmployeeRoleConverter {
     }
 }
 
-open class UUIDConverter {
-    @TypeConverter
-    fun fromUUID(value: UUID?): String = value.toString()
-
-    @TypeConverter
-    fun toUUID(value: String): UUID = UUID.fromString(value)
-}
+//open class UUIDConverter {
+//    @TypeConverter
+//    fun fromUUID(value: UUID?): String = value.toString()
+//
+//    @TypeConverter
+//    fun toUUID(value: String?): UUID? {
+//        return if (value == null) {
+//            null
+//        } else {
+//            UUID.fromString(value)
+//        }
+//    }
+//}

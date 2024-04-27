@@ -1,11 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_vertical"
     android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/flCarNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="64dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/containerCarNumber"
+            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox.Dense"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            app:helperText=""
+            app:helperTextTextColor="@android:color/holo_red_dark"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etCarNumber"
+                style="@style/CasualTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/client_s_car_number"
+                android:lines="1"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageButton
+            android:id="@+id/btnFindWithCarNumber"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="end"
+            android:layout_marginStart="4dp"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/find_client_with_car_number"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_find" />
+    </LinearLayout>
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/containerClientName"
@@ -13,9 +57,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="32dp"
         app:helperText=""
-        app:helperTextTextColor="@android:color/holo_red_dark">
+        app:helperTextTextColor="@android:color/holo_red_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/flCarNumber">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etClientName"
@@ -29,24 +76,29 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/containerCarNumber"
+        android:id="@+id/containerClientPhoneNumber"
         style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
         android:layout_marginTop="16dp"
         app:helperText=""
-        app:helperTextTextColor="@android:color/holo_red_dark">
+        app:helperTextTextColor="@android:color/holo_red_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/containerClientName">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etCarNumber"
+            android:id="@+id/etClientPhoneNumber"
             style="@style/CasualTextStyle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/client_s_car_number"
+            android:hint="@string/client_s_phone_number"
+            android:inputType="phone"
             android:lines="1"
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/containerDescription"
@@ -54,7 +106,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="32dp">
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/containerClientPhoneNumber">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etDescription"
@@ -62,7 +117,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/description"
-            android:lines="3"
             android:maxLines="5" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -73,7 +127,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginVertical="48dp"
-        android:text="@string/submit"
-        android:textColor="@color/white" />
+        android:text="@string/create_request"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/containerDescription" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

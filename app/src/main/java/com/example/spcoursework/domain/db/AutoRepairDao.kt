@@ -35,16 +35,19 @@ interface AutoRepairDao {
     @Query("SELECT * FROM requests WHERE status = :requestStatus")
     suspend fun getRequestsByStatus(requestStatus: RequestStatus): List<Request>
 
+    @Query("SELECT * FROM clients WHERE carNumber = :carNumber LIMIT 1")
+    suspend fun getClientWithCarNumber(carNumber: String): Client
 
-    @Query("SELECT id FROM clients WHERE carNumber = :carNumber LIMIT 1")
-    suspend fun getClientIdByVehicleNumber(carNumber: String): Int?
 
-    @Transaction
-    suspend fun insertRequestWithClientIdByCarNumber(carNumber: String, request: Request) {
-        val clientId = getClientIdByVehicleNumber(carNumber)
-        clientId?.let {
-            val requestWithClientId = request.copy(clientId = it)
-            insertRequest(requestWithClientId)
-        }
-    }
+//    @Query("SELECT id FROM clients WHERE carNumber = :carNumber LIMIT 1")
+//    suspend fun getClientIdByVehicleNumber(carNumber: String): Int?
+//
+//    @Transaction
+//    suspend fun insertRequestWithClientIdByCarNumber(carNumber: String, request: Request) {
+//        val clientId = getClientIdByVehicleNumber(carNumber)
+//        clientId?.let {
+//            val requestWithClientId = request.copy(clientId = it)
+//            insertRequest(requestWithClientId)
+//        }
+//    }
 }

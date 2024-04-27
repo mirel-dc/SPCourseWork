@@ -4,12 +4,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.spcoursework.R
 import com.example.spcoursework.domain.network.SessionManager
 import com.example.spcoursework.domain.repository.AutoRepairRepository
 import com.example.spcoursework.entities.Request
 import com.example.spcoursework.entities.RequestStatus
 import kotlinx.coroutines.async
-import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 
 private const val TAG = "RequestListViewModel"
@@ -29,12 +31,12 @@ class RequestListViewModel(
     private val _searchNameLiveData = MutableLiveData<String>()
     val searchNameLiveData: LiveData<String> = _searchNameLiveData
 
+    private val errorChannel = Channel<Int>()
+    val errorSharedFlow = errorChannel.receiveAsFlow()
+
     init {
         _searchNameLiveData.value = ""
     }
-
-
-    val errorSharedFlow = MutableSharedFlow<String>()
 
     fun getRequestsByStatus(requestStatus: RequestStatus): List<Request> {
         val list = currentList.filter { it.status == requestStatus }
@@ -69,7 +71,7 @@ class RequestListViewModel(
             SessionManager.authToken = "TOKEN"
             SessionManager.role = employee!!.role.resId
         } else {
-            errorSharedFlow.emit("Wrong Password")
+            errorChannel.send(R.string.wrong_password)
         }
     }
 }
