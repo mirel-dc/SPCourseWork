@@ -1,8 +1,9 @@
 package com.example.spcoursework
 
 import android.os.Bundle
+import android.util.Log
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -10,13 +11,9 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.spcoursework.databinding.ActivityMainBinding
-import com.example.spcoursework.domain.db.AutoRepairDB
 import com.example.spcoursework.domain.network.SessionManager
 import com.example.spcoursework.entities.Employee
 import com.example.spcoursework.entities.EmployeeRoles
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 private const val TAG = "MainActivity"
 
@@ -34,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        SessionManager.initialize(applicationContext)
+        //SessionManager.initialize(applicationContext)
         setSupportActionBar(binding.toolbar)
 
         val navHostFragment =
@@ -58,31 +55,55 @@ class MainActivity : AppCompatActivity() {
             return@setOnMenuItemClickListener false
         }
 
-        //TODO разделение по ролям, доделать работника
-        binding.navView.menu.findItem(R.id.createRequestFragment).setVisible(false)
-        binding.navView.menu.findItem(R.id.createRequestFragment)
+        val headerRole = binding.navView.getHeaderView(0)
+            .findViewById<TextView>(R.id.tvEmployeeRole)
+        val headerName = binding.navView.getHeaderView(0)
+            .findViewById<TextView>(R.id.tvEmployeeName)
 
 
-        val dao = AutoRepairDB.getInstance(applicationContext).getDao()
+        SessionManager.roleLiveData.observe(this) { role ->
+            Log.d(TAG, "ROLE CHANGED $role")
+            when (role) {
+                EmployeeRoles.WORKER -> {
+                    setCreatingVisible(false)
+                    headerRole.text = getString(EmployeeRoles.WORKER.resId)
+                }
 
-        lifecycleScope.launch {
-            withContext(Dispatchers.IO) {
-                //AutoRepairDB.getInstance(applicationContext).clearAllTables()
-                //dao.insertEmployee(employerAdmin)
+                EmployeeRoles.ADMIN -> {
+                    headerRole.text = getString(EmployeeRoles.ADMIN.resId)
+                    setCreatingVisible(true)
+                }
+
+                null -> {
+                    Log.e(TAG, "Role is null")
+                }
             }
         }
+
+        SessionManager.employeeNameLD.observe(this) { name ->
+            headerName.text = name
+        }
+
+//        lifecycleScope.launch {
+//            val dao = AutoRepairDB.getInstance(this@MainActivity).getDao()
+//            dao.insertEmployee(employerAdmin)
+//        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp(conf) || super.onSupportNavigateUp()
     }
 
-
-    val employerAdmin = Employee(
-        name = "ADMIN",
-        password = "qwe",
-        phoneNumber = "111",
-        role = EmployeeRoles.ADMIN
-    )
+    private fun setCreatingVisible(flag: Boolean) {
+        binding.navView.menu.findItem(R.id.createRequestFragment).setVisible(flag)
+        binding.navView.menu.findItem(R.id.createEmployeeFragment).setVisible(flag)
+    }
 }
 
+//Init user
+val employerAdmin = Employee(
+    name = "AdminUser",
+    password = "admin",
+    phoneNumber = "111",
+    role = EmployeeRoles.ADMIN
+)

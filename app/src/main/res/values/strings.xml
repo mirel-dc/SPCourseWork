@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name">SPCourseWork</string>
 
     <!-- Navigation Item start -->
@@ -40,5 +40,13 @@
     <string name="can_t_find_client_with_entered_car_s_number">Can\'t find client with entered Car\'s number</string>
     <string name="client_found">Client found</string>
     <string name="requestNumber">Request #%1$d</string>
+    <string name="carNumber">Car Number:  %1$s</string>
+    <string name="currentStatus">Current status: %1$s</string>
+    <string name="clientsPhone">Client\'s phone number: %1$s</string>
+    <string name="add_commentary_about_request">Add commentary about request</string>
+    <string name="take_request">Take Request</string>
+    <string name="finish_request">Finish Request</string>
+    <string name="return_request">Return Request</string>
+    <string name="request_successfully_taken">Request successfully taken</string>
     <!-- Navigation Item end -->
 </resources>

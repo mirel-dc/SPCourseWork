@@ -52,7 +52,8 @@ class CreateRequestViewModel(
             clientPhoneNumber = "",
             workerId = null,
             problemDescription = "",
-            status = RequestStatus.PENDING
+            status = RequestStatus.PENDING,
+            workerCommentary = ""
         )
 
         initValidationErrors()
@@ -79,7 +80,7 @@ class CreateRequestViewModel(
         clientForInsertion = Client(
             name = clientName.value!!,
             phoneNumber = clientPhoneNumber.value!!,
-            carNumber = currentRequest.value!!.carNumber
+            carNumber = currentRequest.value!!.carNumber.uppercase()
         )
         autoRepairRepository.insertClient(clientForInsertion)
 

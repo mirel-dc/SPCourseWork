@@ -2,7 +2,6 @@ package com.example.spcoursework.domain.db
 
 import androidx.room.TypeConverter
 import com.example.spcoursework.entities.EmployeeRoles
-import java.util.UUID
 
 open class EmployeeRoleConverter {
     @TypeConverter
@@ -15,17 +14,3 @@ open class EmployeeRoleConverter {
         return EmployeeRoles.getByResId(resId)
     }
 }
-
-//open class UUIDConverter {
-//    @TypeConverter
-//    fun fromUUID(value: UUID?): String = value.toString()
-//
-//    @TypeConverter
-//    fun toUUID(value: String?): UUID? {
-//        return if (value == null) {
-//            null
-//        } else {
-//            UUID.fromString(value)
-//        }
-//    }
-//}

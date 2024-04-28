@@ -16,6 +16,21 @@
         <action
             android:id="@+id/action_holderFragment_to_createRequestFragment"
             app:destination="@id/createRequestFragment" />
+        <action
+            android:id="@+id/action_holderFragment_to_takeRequestFragment"
+            app:destination="@id/takeRequestFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/takeRequestFragment"
+        android:name="com.example.spcoursework.presentation.fragments.TakeRequestFragment"
+        android:label="@string/take_request"
+        tools:layout="@layout/fragment_take_request">
+        <argument
+            android:name="requestId"
+            app:argType="integer"
+            app:nullable="false" />
     </fragment>
 
     <fragment

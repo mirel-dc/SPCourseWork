@@ -1,7 +1,7 @@
 package com.example.spcoursework.presentation.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.spcoursework.R
@@ -13,6 +13,7 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
+import java.util.UUID
 
 private const val TAG = "RequestListViewModel"
 
@@ -28,22 +29,20 @@ class RequestListViewModel(
     var phoneNumber: String? = null
     var password: String? = null
 
-    private val _searchNameLiveData = MutableLiveData<String>()
-    val searchNameLiveData: LiveData<String> = _searchNameLiveData
 
     private val errorChannel = Channel<Int>()
     val errorSharedFlow = errorChannel.receiveAsFlow()
 
-    init {
-        _searchNameLiveData.value = ""
-    }
 
     fun getRequestsByStatus(requestStatus: RequestStatus): List<Request> {
         val list = currentList.filter { it.status == requestStatus }
-        val searchString = searchNameLiveData.value.toString().trim()
-
-        return list.filter {
-            it.id.toString().lowercase().contains(searchString.lowercase())
+        return when (requestStatus) {
+            RequestStatus.WORKING -> {
+                list.filter { it.workerId == UUID.fromString(SessionManager.employeeID) }
+            }
+            else -> {
+                list
+            }
         }
     }
 
@@ -51,9 +50,6 @@ class RequestListViewModel(
         requestsLiveData = autoRepairRepository.getAllRequests()
     }
 
-    fun setSearchingName(name: String) {
-        _searchNameLiveData.value = name
-    }
 
     fun setCurrentList(newList: List<Request>) {
         currentList = newList
@@ -67,9 +63,17 @@ class RequestListViewModel(
         val correctPassword = employee?.password
 
         if (correctPassword == password && password != null) {
+            Log.d(TAG, "$employee")
+            //Live data
+            SessionManager.setName(employee?.name)
+            SessionManager.setRole(employee?.role!!)
             SessionManager.isLogged.value = true
+
+            //Pref files
+            SessionManager.employeeName = employee.name
+            SessionManager.role = employee.role.resId
             SessionManager.authToken = "TOKEN"
-            SessionManager.role = employee!!.role.resId
+            SessionManager.employeeID = employee.id.toString()
         } else {
             errorChannel.send(R.string.wrong_password)
         }

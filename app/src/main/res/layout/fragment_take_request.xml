@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.fragments.TakeRequestFragment">
+
+    <TextView
+        android:id="@+id/tvRequestId"
+        style="@style/CasualTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="48dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Request #3245" />
+
+    <TextView
+        android:id="@+id/tvRequestStatus"
+        style="@style/CasualTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvRequestId"
+        app:layout_constraintStart_toStartOf="@+id/tvRequestId"
+        app:layout_constraintTop_toBottomOf="@id/tvRequestId"
+        tools:text="Current status: Pending" />
+
+    <TextView
+        android:id="@+id/tvClientPhone"
+        style="@style/CasualTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRequestStatus"
+        tools:text="Client's Phone Number: 880553535" />
+
+    <TextView
+        android:id="@+id/tvCarNumber"
+        style="@style/CasualTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="16dp"
+        app:layout_constraintStart_toStartOf="@+id/tvClientPhone"
+        app:layout_constraintTop_toBottomOf="@id/tvClientPhone"
+        tools:text="Car Number: A123BC45" />
+
+    <EditText
+        android:id="@+id/etProblemDescription"
+        style="@style/CasualTextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="48dp"
+        android:background="@null"
+        android:cursorVisible="false"
+        android:inputType="none"
+        android:maxLines="5"
+        android:scrollbars="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCarNumber"
+        tools:ignore="Autofill,LabelFor"
+        tools:text="Стучит коробка передач, машина дёргается при запуска двигателя.
+        Отказывают тормоза периодически. Lorem Ipsum - это текст-рыба,
+        часто используемый в печати и вэб-дизайне. Lorem Ipsum является
+        стандартной рыбой для текстов на латинице с начала XVI века.
+        В то время некий безымянный печатник создал большую коллекцию размеро
+        в и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum
+        не только успешно пережил без заметных изменений пять веков, но и перешагнул в
+        электронный дизайн. Его популяризации в новое время послужили публикация листов
+        Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы
+        электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum." />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/containerWorkerCommentary"
+        style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="32dp"
+        android:visibility="invisible"
+        app:helperText=""
+        app:helperTextTextColor="@android:color/holo_red_dark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etProblemDescription">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etWorkerCommentary"
+            style="@style/CasualTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/add_commentary_about_request"
+            android:lines="4"
+            android:maxLines="5" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnTakeRequest"
+        style="@style/CasualTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="48dp"
+        android:text="@string/take_request"
+        android:textColor="@color/white"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/alreadyTakenRequestGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="48dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btnReturnRequest"
+            style="@style/CasualTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:text="@string/return_request"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btnFinishRequest"
+            style="@style/CasualTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:text="@string/finish_request"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

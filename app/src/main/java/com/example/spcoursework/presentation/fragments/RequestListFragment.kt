@@ -5,9 +5,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.spcoursework.databinding.FragmentRequestsListBinding
@@ -65,7 +65,7 @@ class RequestListFragment : Fragment() {
         arguments?.takeIf { it.containsKey(PARAM_TYPE) }?.apply {
             requestStatus = parcelable(PARAM_TYPE)!!
         }
-        Log.d(TAG,requestStatus.toString())
+        Log.d(TAG, requestStatus.toString())
 
         AutoRepairDB.getInstance(requireContext()).getDao().getAllRequests()
             .observe(viewLifecycleOwner) {
@@ -101,12 +101,10 @@ class RequestListFragment : Fragment() {
 
 
     private fun doOnRVItemClicked(request: Request) {
-        Toast.makeText(requireContext(), "$request", Toast.LENGTH_LONG).show()
-//        val navAction =
-//            MainHolderFragmentDirections.actionMainHolderFragmentToCreateHabitFragment(habit.id.toString())
-//        findNavController().navigate(navAction)
+        val navAction =
+            HolderFragmentDirections.actionHolderFragmentToTakeRequestFragment(request.id)  //(habit.id.toString())
+        findNavController().navigate(navAction)
     }
-
 
     companion object {
         private const val PARAM_TYPE = "param_type"

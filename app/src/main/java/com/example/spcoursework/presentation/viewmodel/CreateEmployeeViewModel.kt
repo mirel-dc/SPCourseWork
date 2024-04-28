@@ -26,13 +26,17 @@ class CreateEmployeeViewModel(
     val nameError: LiveData<Int?> = _nameError
 
     init {
+        emptyEmployee()
+        initValidationErrors()
+    }
+
+    private fun emptyEmployee() {
         currentEmployee.value = Employee(
             name = "",
             password = "",
             phoneNumber = "",
             role = EmployeeRoles.WORKER
         )
-        initValidationErrors()
     }
 
 
@@ -40,6 +44,7 @@ class CreateEmployeeViewModel(
     fun submitBtnAction(): Boolean {
         return if (isValid()) {
             createEmployee()
+            emptyEmployee()
             return true
         } else {
             false
@@ -49,7 +54,7 @@ class CreateEmployeeViewModel(
     private fun createEmployee() = viewModelScope.launch {
         currentEmployee.value.let {
             if (it != null) {
-                autoRepairRepository.insertEmployee(it.copy())
+                autoRepairRepository.insertEmployee(it)
             }
         }
     }
@@ -66,7 +71,7 @@ class CreateEmployeeViewModel(
                 && validateName(currentEmployee.value?.name.toString()))
     }
 
-     fun validateName(enteredName: String): Boolean {
+    fun validateName(enteredName: String): Boolean {
         return if (enteredName == "") {
             _nameError.value = R.string.cannot_be_empty
             false
@@ -77,7 +82,7 @@ class CreateEmployeeViewModel(
 
     }
 
-     fun validatePhone(enteredPhone: String): Boolean {
+    fun validatePhone(enteredPhone: String): Boolean {
         return if (enteredPhone == "") {
             _phoneError.value = R.string.cannot_be_empty
             false
@@ -90,7 +95,7 @@ class CreateEmployeeViewModel(
         }
     }
 
-     fun validatePassword(enteredPassword: String): Boolean {
+    fun validatePassword(enteredPassword: String): Boolean {
         if (enteredPassword.isEmpty()) {
             _passwordError.value = R.string.cannot_be_empty
             return false

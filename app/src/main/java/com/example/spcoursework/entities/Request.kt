@@ -26,7 +26,8 @@ data class Request(
     var workerId: UUID?,
     var carNumber: String,
     var problemDescription: String?,
-    val status: RequestStatus
+    var status: RequestStatus,
+    var workerCommentary: String?
 )
 
 @Parcelize

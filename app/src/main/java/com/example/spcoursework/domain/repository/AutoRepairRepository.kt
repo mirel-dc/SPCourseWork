@@ -14,8 +14,6 @@ class AutoRepairRepository(
         autoRepairDB.getDao().getEmployeeWithPhone(phone)
     }
 
-    fun getEmployeeWithPhoneLD(phone: String) = autoRepairDB.getDao().getEmployeeWithPhoneLD(phone)
-
     fun getAllRequests() = autoRepairDB.getDao().getAllRequests()
 
     suspend fun insertEmployee(employee: Employee) = withContext(Dispatchers.IO) {
@@ -34,4 +32,13 @@ class AutoRepairRepository(
     suspend fun insertClient(client: Client) = withContext(Dispatchers.IO) {
         autoRepairDB.getDao().insertClient(client)
     }
+
+    suspend fun getRequestWithId(requestId: Int) = withContext(Dispatchers.IO) {
+        autoRepairDB.getDao().getRequestWithId(requestId)
+    }
+
+    suspend fun updateRequest(request: Request) = withContext(Dispatchers.IO) {
+        autoRepairDB.getDao().updateRequest(request)
+    }
+
 }
