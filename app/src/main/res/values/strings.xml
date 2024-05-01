@@ -3,15 +3,10 @@
 
     <!-- Navigation Item start -->
     <string name="home">Home</string>
-    <string name="info">Info</string>
-    <string name="filter_and_search">Filter and search</string>
-    <string name="sort_by_date_edited">Sort by date edited</string>
-    <string name="successfully_deleted_habit">Successfully deleted habit</string>
-    <string name="undo">Undo</string>
     <string name="phone_number">Phone number</string>
     <string name="password">Password</string>
     <string name="log_in">Log In</string>
-    <string name="client_name">Client Name</string>
+    <string name="client_name">Client name</string>
     <string name="client_s_car_number">Client\'s car number</string>
     <string name="description">Description</string>
     <string name="submit">Submit</string>
@@ -22,7 +17,6 @@
     <string name="worker">Worker</string>
     <string name="create_request">Create request</string>
     <string name="create_employee">Create employee</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="wrong_password">Wrong Password</string>
     <string name="wrong_phone">Wrong Phone</string>
     <string name="pending">Pending</string>
@@ -48,5 +42,8 @@
     <string name="finish_request">Finish Request</string>
     <string name="return_request">Return Request</string>
     <string name="request_successfully_taken">Request successfully taken</string>
+
+    <string name="arrived"> Arrived</string>
+    <string name="my_working"> My working</string>
     <!-- Navigation Item end -->
 </resources>

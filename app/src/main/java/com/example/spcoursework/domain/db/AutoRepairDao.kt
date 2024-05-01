@@ -38,5 +38,4 @@ interface AutoRepairDao {
 
     @Query("SELECT * FROM requests WHERE id = :requestId")
     suspend fun getRequestWithId(requestId: Int): Request
-
 }

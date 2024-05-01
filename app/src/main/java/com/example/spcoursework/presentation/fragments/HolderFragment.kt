@@ -60,8 +60,8 @@ class HolderFragment : Fragment() {
             binding.requestTypeViewPager2
         ) { tab, position ->
             when (position) {
-                0 -> tab.text = "Arrived"
-                1 -> tab.text = "My working"
+                0 -> tab.text = getString(R.string.arrived)
+                1 -> tab.text = getString(R.string.my_working)
             }
         }.attach()
     }

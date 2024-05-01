@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SPCourseWork</string>
+    <string name="home">Главная страница</string>
+    <string name="phone_number">Номер телефона</string>
+    <string name="password">Пароль</string>
+    <string name="log_in">Авторизация</string>
+    <string name="client_name">Имя клиента</string>
+    <string name="client_s_car_number">Номер машины клиента</string>
+    <string name="description">Описание</string>
+    <string name="submit">Подтвердить</string>
+    <string name="employee_name">Имя сотрудника</string>
+    <string name="employee_s_phone_number">Номер телефона сотрудника</string>
+    <string name="employee_s_password">Пароль сотрудника</string>
+    <string name="admin">Админ</string>
+    <string name="worker">Рабочий</string>
+    <string name="create_request">Создать заявку</string>
+    <string name="create_employee">Создать сотрудника</string>
+    <string name="wrong_password">Неправильный пароль</string>
+    <string name="wrong_phone">Неправильный телефон</string>
+    <string name="pending">В ожидании</string>
+    <string name="working">В работе</string>
+    <string name="finished">Завершена</string>
+    <string name="logout">Выйти</string>
+    <string name="cannot_be_empty">Не может быть пустым</string>
+    <string name="too_long">Слишком длинное</string>
+    <string name="password_is_too_short">Пароль слишком короткий</string>
+    <string name="at_least_1_digit">Как минимум 1 цифира</string>
+    <string name="at_least_1_capital_and_lowercase">Как минимум 1 заглавная и строчка буква</string>
+    <string name="client_s_phone_number">Номер телефона клиента</string>
+    <string name="wrong_format_a123aa12">Неправильный формат: A123BC34</string>
+    <string name="find_client_with_car_number">Найти клиента с номером машины</string>
+    <string name="can_t_find_client_with_entered_car_s_number">Нет клиента с таким номером машины</string>
+    <string name="client_found">Клиент найден</string>
+    <string name="requestNumber">Запрос #%1$d</string>
+    <string name="carNumber">Номер машины: %1$s</string>
+    <string name="currentStatus">Текущий статус: %1$s</string>
+    <string name="clientsPhone">Номер телефона клиента: %1$s</string>
+    <string name="add_commentary_about_request">Добавить комментарий</string>
+    <string name="take_request">Взять</string>
+    <string name="finish_request">Завершить</string>
+    <string name="return_request">Вернуть</string>
+    <string name="request_successfully_taken">Запрос успешно взят</string>
+    <string name="arrived">В ожидании</string>
+    <string name="my_working">Мои заявки</string>
+</resources>

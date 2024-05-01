@@ -102,7 +102,7 @@ class RequestListFragment : Fragment() {
 
     private fun doOnRVItemClicked(request: Request) {
         val navAction =
-            HolderFragmentDirections.actionHolderFragmentToTakeRequestFragment(request.id)  //(habit.id.toString())
+            HolderFragmentDirections.actionHolderFragmentToTakeRequestFragment(request.id)
         findNavController().navigate(navAction)
     }
 

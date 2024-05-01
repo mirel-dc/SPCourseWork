@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -11,9 +12,11 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.spcoursework.databinding.ActivityMainBinding
+import com.example.spcoursework.domain.db.AutoRepairDB
 import com.example.spcoursework.domain.network.SessionManager
 import com.example.spcoursework.entities.Employee
 import com.example.spcoursework.entities.EmployeeRoles
+import kotlinx.coroutines.launch
 
 private const val TAG = "MainActivity"
 
@@ -31,7 +34,6 @@ class MainActivity : AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //SessionManager.initialize(applicationContext)
         setSupportActionBar(binding.toolbar)
 
         val navHostFragment =
@@ -84,10 +86,10 @@ class MainActivity : AppCompatActivity() {
             headerName.text = name
         }
 
-//        lifecycleScope.launch {
-//            val dao = AutoRepairDB.getInstance(this@MainActivity).getDao()
-//            dao.insertEmployee(employerAdmin)
-//        }
+        lifecycleScope.launch {
+            val dao = AutoRepairDB.getInstance(this@MainActivity).getDao()
+            dao.insertEmployee(employerAdmin)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
