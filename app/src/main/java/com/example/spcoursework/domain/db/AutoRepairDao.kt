@@ -9,6 +9,7 @@ import androidx.room.Update
 import com.example.spcoursework.entities.Client
 import com.example.spcoursework.entities.Employee
 import com.example.spcoursework.entities.Request
+import java.util.UUID
 
 @Dao
 interface AutoRepairDao {

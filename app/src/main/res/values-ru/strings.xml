@@ -37,10 +37,11 @@
     <string name="currentStatus">Текущий статус: %1$s</string>
     <string name="clientsPhone">Номер телефона клиента: %1$s</string>
     <string name="add_commentary_about_request">Добавить комментарий</string>
-    <string name="take_request">Взять</string>
+    <string name="take_request">Взять заявку</string>
     <string name="finish_request">Завершить</string>
     <string name="return_request">Вернуть</string>
     <string name="request_successfully_taken">Запрос успешно взят</string>
     <string name="arrived">В ожидании</string>
     <string name="my_working">Мои заявки</string>
+    <string name="too_short">Слишком короткий</string>
 </resources>

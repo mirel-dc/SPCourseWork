@@ -75,7 +75,7 @@ class TakeRequestFragment : Fragment() {
             etProblemDescription.setText(request.problemDescription)
             etWorkerCommentary.setText(request.workerCommentary)
             tvRequestStatus.text =
-                resources.getString(R.string.currentStatus, request.status.toString())
+                resources.getString(R.string.currentStatus, getString(request.status.resId))
         }
     }
 

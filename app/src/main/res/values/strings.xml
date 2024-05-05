@@ -45,5 +45,6 @@
 
     <string name="arrived"> Arrived</string>
     <string name="my_working"> My working</string>
+    <string name="too_short">Too short</string>
     <!-- Navigation Item end -->
 </resources>

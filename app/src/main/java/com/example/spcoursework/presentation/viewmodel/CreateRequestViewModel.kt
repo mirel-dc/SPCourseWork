@@ -144,6 +144,10 @@ class CreateRequestViewModel(
         } else if (enteredPhone.length > 11) {
             _phoneError.value = R.string.too_long
             false
+
+        } else if (enteredPhone.length < 11) {
+            _phoneError.value = R.string.too_short
+            false
         } else {
             _phoneError.value = null
             true

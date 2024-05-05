@@ -17,6 +17,7 @@ import com.example.spcoursework.domain.network.SessionManager
 import com.example.spcoursework.entities.Employee
 import com.example.spcoursework.entities.EmployeeRoles
 import kotlinx.coroutines.launch
+import java.util.UUID
 
 private const val TAG = "MainActivity"
 
@@ -88,7 +89,7 @@ class MainActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             val dao = AutoRepairDB.getInstance(this@MainActivity).getDao()
-            dao.insertEmployee(employerAdmin)
+            //dao.insertEmployee(employerAdmin)
         }
     }
 
